@@ -63,14 +63,7 @@
         <script src="data/GEFBarangayVisayas_28.js"></script>
         <script src="data/GEFBarangayLuzon_29.js"></script>
         <script>
-            var c = new L.Control.Coordinates(); # you can send options to the constructor if you want to, otherwise default values are used
-
-c.addTo(map);
-
-map.on('click', function(e) {
-	c.setCoordinates(e);
-});
-            
+  
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
@@ -89,6 +82,15 @@ map.on('click', function(e) {
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
+		
+		var c = new L.Control.Coordinates(); # you can send options to the constructor if you want to, otherwise default values are used
+
+c.addTo(map);
+
+map.on('click', function(e) {
+	c.setCoordinates(e);
+});
+		
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://jasonangelbunag.github.io/GEFProjects/" target="_blank">jasonangel</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
